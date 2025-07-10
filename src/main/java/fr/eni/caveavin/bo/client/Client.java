@@ -1,28 +1,20 @@
 package fr.eni.caveavin.bo.client;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
-@Entity @Table(name="cav_client")
-@Builder
-@NoArgsConstructor @AllArgsConstructor
-@Getter @Setter
-@ToString(exclude = {"password"})
-@EqualsAndHashCode(of = {"pseudo"})
-public class Client {
-    @Id
-    @Column(name = "login")
-    private String pseudo;
+@EqualsAndHashCode(callSuper = true)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@SuperBuilder
+@Entity
+@Table(name = "cav_client")
+@DiscriminatorValue("client")
+public class Client extends Utilisateur {
 
-    @Column(name = "password")
-    private String password;
-
-    @Column(name = "last_name")
-    private String nom;
-
-    @Column(name = "first_name")
-    private String prenom;
+    @OneToOne(cascade = CascadeType.ALL,  fetch = FetchType.EAGER, orphanRemoval = true)
+    @JoinColumn(name = "address_id")
+    private Adresse adresse;
 }
