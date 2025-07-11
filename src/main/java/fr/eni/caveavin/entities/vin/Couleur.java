@@ -1,4 +1,4 @@
-package fr.eni.caveavin.bo.vin;
+package fr.eni.caveavin.entities.vin;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -11,12 +11,12 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name="cav_regions")
-public class Region {
-
-    @Id @GeneratedValue(strategy= GenerationType.IDENTITY)
+@Table(name="cav_colors")
+public class Couleur {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name="name", length=250, unique = true)
+    @Column(name="name", length=250)
     private String nom;
 }

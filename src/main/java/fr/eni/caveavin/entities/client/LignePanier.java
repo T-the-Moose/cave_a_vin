@@ -1,6 +1,6 @@
-package fr.eni.caveavin.bo.client;
+package fr.eni.caveavin.entities.client;
 
-import fr.eni.caveavin.bo.vin.Bouteille;
+import fr.eni.caveavin.entities.vin.Bouteille;
 import jakarta.persistence.*;
 import lombok.*;
 

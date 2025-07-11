@@ -1,6 +1,6 @@
 package fr.eni.caveavin.repository;
 
-import fr.eni.caveavin.bo.client.Panier;
+import fr.eni.caveavin.entities.client.Panier;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

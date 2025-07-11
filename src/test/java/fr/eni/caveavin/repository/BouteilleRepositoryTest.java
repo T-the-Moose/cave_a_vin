@@ -1,12 +1,12 @@
 package fr.eni.caveavin.repository;
 
-import fr.eni.caveavin.bo.client.Client;
-import fr.eni.caveavin.bo.client.LignePanier;
-import fr.eni.caveavin.bo.client.Panier;
-import fr.eni.caveavin.bo.client.Utilisateur;
-import fr.eni.caveavin.bo.vin.Bouteille;
-import fr.eni.caveavin.bo.vin.Couleur;
-import fr.eni.caveavin.bo.vin.Region;
+import fr.eni.caveavin.entities.client.Client;
+import fr.eni.caveavin.entities.client.LignePanier;
+import fr.eni.caveavin.entities.client.Panier;
+import fr.eni.caveavin.entities.client.Utilisateur;
+import fr.eni.caveavin.entities.vin.Bouteille;
+import fr.eni.caveavin.entities.vin.Couleur;
+import fr.eni.caveavin.entities.vin.Region;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;

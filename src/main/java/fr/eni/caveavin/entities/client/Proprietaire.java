@@ -1,4 +1,4 @@
-package fr.eni.caveavin.bo.client;
+package fr.eni.caveavin.entities.client;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;

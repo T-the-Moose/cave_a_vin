@@ -1,8 +1,8 @@
 package fr.eni.caveavin.repository;
 
-import fr.eni.caveavin.bo.client.Client;
-import fr.eni.caveavin.bo.client.Proprietaire;
-import fr.eni.caveavin.bo.client.Utilisateur;
+import fr.eni.caveavin.entities.client.Client;
+import fr.eni.caveavin.entities.client.Proprietaire;
+import fr.eni.caveavin.entities.client.Utilisateur;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
