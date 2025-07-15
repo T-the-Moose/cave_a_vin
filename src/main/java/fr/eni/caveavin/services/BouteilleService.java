@@ -15,5 +15,5 @@ public interface BouteilleService {
 
 	Bouteille ajouterBouteille(Bouteille bouteille);
 
-	Bouteille supprimerBouteille(int idBouteille);
+	void supprimerBouteille(int idBouteille);
 }

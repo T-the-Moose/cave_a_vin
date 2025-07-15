@@ -33,10 +33,9 @@ public class BouteilleServiceImpl implements BouteilleService {
 	}
 
 	@Override
-	public Bouteille supprimerBouteille(int idBouteille) {
+	public void supprimerBouteille(int idBouteille) {
 		final Bouteille bDB = chargerBouteilleParId(idBouteille);
 		bRepository.delete(bDB);
-		return bDB;
 	}
 
 	@Override
@@ -67,7 +66,7 @@ public class BouteilleServiceImpl implements BouteilleService {
 		if (listeDB == null || listeDB.isEmpty()) {
 			throw new RuntimeException("Aucune bouteille ne correspond");
 		}
-		return listeDB;		
+		return listeDB;
 	}
 
 	private Region validerRegion(int idRegion) {
