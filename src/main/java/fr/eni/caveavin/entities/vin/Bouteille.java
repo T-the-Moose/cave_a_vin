@@ -20,35 +20,35 @@ public class Bouteille {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
-    @NotBlank() @Size(min=1, max=250)
+    @NotBlank(message = "{exception.bouteille.nom}") @Size(min=1, max=250)
     @Column(name="name", length=250, unique = true)
     private String nom;
 
     @Column(name="sparkling")
     private boolean petillant;
 
-    @Size(min=1, max=100)
+    @Size(min=1, max=100, message = "{exception.bouteille.millesime}")
     @Column(name="vintage", length=100)
     private String millesime;
 
-    @Min(1)
+    @Min(value = 1, message = "{exception.bouteille.quantite}")
     @Column(name="quantity")
     private int quantite;
 
-    @Min(1)
+    @Min(value = 1, message = "{exception.bouteille.prix}")
     @Column(name="price", precision=2)
     private float prix;
 
     @ManyToOne
     @JoinColumn(name="region_id")
     @EqualsAndHashCode.Exclude
-    @NotNull
+    @NotNull(message = "{exception.bouteille.region}")
     private Region region;
 
     @ManyToOne
     @JoinColumn(name="color_id")
     @EqualsAndHashCode.Exclude
-    @NotNull
+    @NotNull(message = "{exception.bouteille.couleur}")
     private Couleur couleur;
 
 }
