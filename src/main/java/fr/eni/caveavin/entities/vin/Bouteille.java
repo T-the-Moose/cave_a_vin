@@ -20,14 +20,14 @@ public class Bouteille {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
-    @NotBlank() @Size(min=2, max=250)
-    @Column(name="name", length=250)
+    @NotBlank() @Size(min=1, max=250)
+    @Column(name="name", length=250, unique = true)
     private String nom;
 
     @Column(name="sparkling")
     private boolean petillant;
 
-    @Size(min=2, max=100)
+    @Size(min=1, max=100)
     @Column(name="vintage", length=100)
     private String millesime;
 
@@ -35,6 +35,7 @@ public class Bouteille {
     @Column(name="quantity")
     private int quantite;
 
+    @Min(1)
     @Column(name="price", precision=2)
     private float prix;
 

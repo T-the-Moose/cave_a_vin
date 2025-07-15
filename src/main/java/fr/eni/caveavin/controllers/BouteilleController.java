@@ -79,11 +79,7 @@ public class BouteilleController {
     }
 
     @PutMapping("/update/{id:\\d+}")
-    public ResponseEntity<Bouteille> updateBouteilleWithId(
-            @Valid
-            @PathVariable int id,
-            @RequestBody Bouteille bouteille
-    ) {
+    public ResponseEntity<Bouteille> updateBouteilleWithId(@PathVariable int id, @Valid @RequestBody Bouteille bouteille) {
         if (bouteille.getId() == null || bouteille.getId() <= 0)
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 
