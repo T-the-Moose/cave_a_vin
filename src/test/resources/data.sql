@@ -1,64 +1,61 @@
+INSERT INTO cav_colors (name)  VALUES ('Blanc');
+INSERT INTO cav_colors (name)   VALUES ('Rouge');
+INSERT INTO cav_colors (name)   VALUES (N'Rosé');
 
-DELETE FROM cav_line;
-DELETE FROM cav_shopping_cart;
+INSERT INTO cav_regions (name)  VALUES (N'Auvergne-Rhône-Alpes');
+INSERT INTO cav_regions (name)   VALUES (N'Bourgogne-Franche-Comté');
+INSERT INTO cav_regions (name)   VALUES ('Bretagne');
+INSERT INTO cav_regions (name)   VALUES ('Centre-Val de Loire');
+INSERT INTO cav_regions (name)   VALUES ('Corse');
+INSERT INTO cav_regions (name)   VALUES ('Grand Est');
+INSERT INTO cav_regions (name)   VALUES ('Hauts-de-France');
+INSERT INTO cav_regions (name)   VALUES ('Ile-de-France');
+INSERT INTO cav_regions (name)   VALUES ('Normandie');
+INSERT INTO cav_regions (name)   VALUES ('Nouvelle-Aquitaine');
+INSERT INTO cav_regions (name)   VALUES ('Occitanie');
+INSERT INTO cav_regions (name)   VALUES ('Pays de la Loire');
+INSERT INTO cav_regions (name)   VALUES (N'Provence-Alpes-Côte d''Azur');
 
-DELETE FROM cav_client;
-DELETE FROM cav_owner;
-DELETE FROM cav_user;
-DELETE FROM cav_address;
+/*Bouteille*/
+INSERT INTO cav_bottles (name, vintage, sparkling, quantity, price, region_id, color_id)  VALUES ('DOMAINE WW, Muscat Vendanges Tardives','2017',0,1872,11,6,1);
+INSERT INTO cav_bottles (name, vintage, sparkling, quantity, price, region_id, color_id)  VALUES ('Domaine FF, BRUT pinot gris','2020',1,972,21.5,6,1);
+INSERT INTO cav_bottles (name, vintage, sparkling, quantity, price, region_id, color_id)  VALUES (N'Gilbert FF, Crémant d''Alsace rosé', '2022', 1, 1872, 19, 6, 3);
+INSERT INTO cav_bottles (name, vintage, sparkling, quantity, price, region_id, color_id)  VALUES ('Domaine LG, Pisse Vieille','2022',0,999,7.25,2,2);
+INSERT INTO cav_bottles (name, vintage, sparkling, quantity, price, region_id, color_id)  VALUES ('Domaine LG, Vieille Vigne','2021',0,1172,12,2,2);
+INSERT INTO cav_bottles (name, vintage, sparkling, quantity, price, region_id, color_id)  VALUES ('Domaine du B','2021',0,187,17.5,2,2);
+INSERT INTO cav_bottles (name, vintage, sparkling, quantity, price, region_id, color_id)  VALUES (N'Château Caché Cuvée L', '2018', 0, 1112, 9.9, 10, 2);
+INSERT INTO cav_bottles (name, vintage, sparkling, quantity, price, region_id, color_id)  VALUES (N'Bordeaux AOP, Rosé', '2021', 0, 2472, 7.5, 10, 3);
+INSERT INTO cav_bottles (name, vintage, sparkling, quantity, price, region_id, color_id)  VALUES (N'Château du roi', '2013', 0, 272, 21, 10, 2);
 
-DELETE FROM cav_bottles;
-DELETE FROM cav_colors;
-DELETE FROM cav_regions;
+/*Utilisateur*/
+INSERT INTO cav_users ([login],[password],[last_name],[first_name],[authority], [role])   VALUES ('georgelucas@email.fr','{bcrypt}$2a$10$ArMK0JihvGcM.aECD/J8rezPcKfCi.wMxJaIVAy5WlLrU5etq/yKm','Lucas','George','ROLE_OWNER', 'owner');/*Password : Réalisateur&Producteur*/
+INSERT INTO cav_users ([login],[password],[last_name],[first_name],[authority], [role])   VALUES ('natalieportman@email.fr','{bcrypt}$2a$10$6/QHy4Qiz8WB.Pfh9DwLEesCoBDlycGuTBMJQGBeIphVq2V/Jibou','Portman','Natalie','ROLE_CLIENT', 'client');/*Password : MarsAttacks!*/
+INSERT INTO cav_users ([login],[password],[last_name],[first_name],[authority], [role])   VALUES ('bobeponge@email.fr','{bcrypt}$2a$10$5hVCTb4cq20CfCjLNzFUTervByeCEnjU314raNmeqi7SzH6zRD.8K','Eponge','Bob','ROLE_CLIENT', 'client');/*Password : carré*/
+INSERT INTO cav_users ([login],[password],[last_name],[first_name],[authority], [role])   VALUES ('harrisonford@email.fr','{bcrypt}$2a$10$/5nEPZg4/BC/Jj0Q/yzEQ.0gGWzBu0ZmziWaeIAVtrtVj.VoAHPHS','Ford','Harrison','ROLE_CLIENT', 'client');/*Password : IndianaJones3*/
 
-INSERT INTO cav_address
-(street , zip_code  , city) VALUES
-    ('123 Trois ptits chats', '12300', 'Catcity'),
-    ('42 Rue du voyageur', '42000', 'Galaxy');
+/*Proprio*/
+INSERT INTO cav_owner ([login],[client_number]) VALUES ('georgelucas@email.fr', '12345678901234');
 
+/*Client*/
+/*Adresse*/
+INSERT INTO cav_address ([street],[zip_code],[city]) values ('Hollywood Boulevard','44000','Nantes');
+INSERT INTO cav_address ([street],[zip_code],[city]) values ('Sous la mer','35000','Rennes');
+INSERT INTO cav_address ([street],[zip_code],[city]) values ('Rue du Temple','35000','Rennes');
+INSERT INTO cav_client ([login],[address_id]) values ('natalieportman@email.fr',1);
+INSERT INTO cav_client ([login],[address_id]) values ('bobeponge@email.fr',2);
+INSERT INTO cav_client ([login],[address_id]) values ('harrisonford@email.fr',3);
 
-INSERT INTO cav_user
-    (login  , password  , last_name , first_name , role) VALUES
-        ('log1', 'pwd1', 'NEYMAR'   , 'Jean'   , 'client'),
-        ('log2', 'pwd2', 'CASSIN'   , 'Marc'   , 'client'),
-        ('log3', 'pwd3', 'BONNEAU'  , 'Jean'   , 'client'),
-        ('log4', 'pwd4', 'DRUKER'   , 'Michel' , 'owner'),
-        ('log5', 'pwd5', 'BERGER'   , 'Michel' , 'owner'),
-        ('log6', 'pwd6', 'POLNAREF' , 'Michel' , 'owner'),
-        ('log7', 'pwd7', 'BALTAZAR' , 'Picsou' , 'user'),
-        ('log8', 'pwd8', 'DUCK'     , 'Donald' , 'user'),
-        ('log9', 'pwd9', 'MOUSE'    , 'Mickey' , 'user');
+/*Panier et LignePanier*/
+INSERT INTO cav_shopping_cart ([client_id],[total_price],[order_number],[paid]) VALUES ('natalieportman@email.fr',1315,'natalieportman@email.fr_1',1);
+INSERT INTO cav_shopping_cart ([client_id],[total_price],[paid]) VALUES ('natalieportman@email.fr',2300,0);
+INSERT INTO cav_shopping_cart ([client_id],[total_price],[order_number],[paid]) VALUES ('bobeponge@email.fr',425,'bobeponge@email.fr_3',1);
+INSERT INTO cav_shopping_cart ([client_id],[total_price],[paid]) VALUES ('bobeponge@email.fr',425,0);
 
-INSERT INTO cav_client
-    (login  , address_id) VALUES
-      ('log1', (SELECT cav_address.id FROM cav_address WHERE street = '123 Trois ptits chats')),
-      ('log2', (SELECT cav_address.id FROM cav_address WHERE street = '42 Rue du voyageur')),
-      ('log3', NULL);
-
-INSERT INTO cav_owner
-    (login  ,  client_number) VALUES
-      ('log4',  '85203183000015'),
-      ('log5',  '85203183000023'),
-      ('log6',  '85203183000038');
-
-INSERT INTO cav_shopping_cart
-(order_number, total_price, paid) VALUES
-    ('C00123', 3*11.45, 1);
-
-INSERT INTO cav_line
-(quantity, price, shopping_cart_id, bottle_id) VALUES
-    (3, 3*11.45, (SELECT cav_shopping_cart.id FROM cav_shopping_cart WHERE order_number = 'C00123'), (SELECT cav_bottles.id FROM cav_bottles WHERE name = N'Blanc du domaine ENI école'));
-
-
-INSERT INTO cav_regions (name) VALUES ('Pays de la Loire'), ('Grand Est'), ('Nouvelle Aquitaine');
-INSERT INTO cav_colors (name) VALUES (N'Rosé'),('Rouge'),('Blanc');
-
-INSERT INTO cav_bottles (name, sparkling, vintage, quantity, price, region_id, color_id)
-VALUES
-    (N'Blanc du domaine ENI école', 0, '2022', 1298, 23.95, (SELECT id FROM cav_regions WHERE name = 'Pays de la Loire'), (SELECT id FROM cav_colors WHERE name = 'Blanc')),
-    (N'Rouge du domaine ENI école', 0, '2018', 987, 11.45, (SELECT id FROM cav_regions WHERE name = 'Pays de la Loire'), (SELECT id FROM cav_colors WHERE name = 'Rouge')),
-    ('Blanc du domaine ENI service', 1, '2022', 111, 34, (SELECT id FROM cav_regions WHERE name = 'Grand Est'), (SELECT id FROM cav_colors WHERE name = 'Blanc')),
-    ('Rouge du domaine ENI service', 0, '2012', 344, 8.15, (SELECT id FROM cav_regions WHERE name = 'Pays de la Loire'), (SELECT id FROM cav_colors WHERE name = 'Rouge')),
-    (N'Rosé du domaine ENI', 0, '2022', 1987, 33, (SELECT id FROM cav_regions WHERE name = 'Nouvelle Aquitaine'), (SELECT id FROM cav_colors WHERE name = N'Rosé'));
-
-
+INSERT INTO cav_line ([shopping_cart_id],[bottle_id],[quantity],[price]) VALUES (1,1,100,1100);
+INSERT INTO cav_line ([shopping_cart_id],[bottle_id],[quantity],[price]) VALUES (1,2,10,215);
+INSERT INTO cav_line ([shopping_cart_id],[bottle_id],[quantity],[price]) VALUES (2,1,100,1100);
+INSERT INTO cav_line ([shopping_cart_id],[bottle_id],[quantity],[price]) VALUES (2,5,100,1200);
+INSERT INTO cav_line ([shopping_cart_id],[bottle_id],[quantity],[price]) VALUES (3,2,10,215);
+INSERT INTO cav_line ([shopping_cart_id],[bottle_id],[quantity],[price]) VALUES (3,9,10,210);
+INSERT INTO cav_line ([shopping_cart_id],[bottle_id],[quantity],[price]) VALUES (4,2,10,215);
+INSERT INTO cav_line ([shopping_cart_id],[bottle_id],[quantity],[price]) VALUES (4,9,10,210);

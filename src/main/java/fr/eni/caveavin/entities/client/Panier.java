@@ -15,7 +15,7 @@ import java.util.List;
 @Entity @Table(name="cav_shopping_cart")
 public class Panier {
     @Id
-    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "order_number", length = 200)

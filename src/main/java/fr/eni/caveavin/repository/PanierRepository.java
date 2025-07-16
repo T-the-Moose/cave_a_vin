@@ -1,8 +1,10 @@
 package fr.eni.caveavin.repository;
 
+import fr.eni.caveavin.entities.client.Client;
 import fr.eni.caveavin.entities.client.Panier;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,4 +23,9 @@ public interface PanierRepository extends JpaRepository<Panier, Integer> {
 
     @Query(value = "SELECT * FROM cav_shopping_cart p WHERE p.order_number IS NOT NULL AND p.client_id = :pseudo", nativeQuery = true)
     List<Panier> findByClientPseudoAndNumCommandeIsNotNullButWithJPQL(String pseudo);
+
+    @Query(value = "SELECT p.* FROM CAV_SHOPPING_CART p WHERE p.CLIENT_ID = :idClient AND p.ORDER_NUMBER IS NOT NULL", nativeQuery = true)
+    List<Panier> findCommandesWithSQL(@Param("idClient") String idClient);
+
+    List<Panier> findByNumCommandeNullAndClient(@Param("client") Client client);
 }
