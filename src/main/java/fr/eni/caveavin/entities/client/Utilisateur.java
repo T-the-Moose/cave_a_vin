@@ -8,6 +8,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor @AllArgsConstructor
 @SuperBuilder
 @Entity
+@Getter
 @Inheritance(strategy = InheritanceType.JOINED)
 @ToString(exclude = {"password"})
 @EqualsAndHashCode(of = {"pseudo"})

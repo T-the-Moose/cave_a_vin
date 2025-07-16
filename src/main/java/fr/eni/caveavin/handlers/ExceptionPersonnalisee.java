@@ -11,7 +11,7 @@ import java.util.Locale;
 @ControllerAdvice
 public class ExceptionPersonnalisee {
     // Ici, on peut définir des méthodes pour gérer les exceptions globalement
-    // Par exemple, vous pouvez capturer les exceptions spécifiques et renvoyer des réponses personnalisées
+    // Par exemple, vous pouvez capturer les exceptions spécifiques et renvoyer des réponses personnalisées.
 
     // Permet de charger les messages du message.properties
     private final MessageSource messageSource;
