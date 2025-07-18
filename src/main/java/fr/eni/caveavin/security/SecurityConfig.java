@@ -29,9 +29,14 @@ public class SecurityConfig {
         http.authorizeHttpRequests(auth -> auth
             // Tout le monde peut envoyer le formulaire de connexion
             .requestMatchers("/caveavin/auth").permitAll()
+            // Swagger UI
+            .requestMatchers("/swagger-ui/**").permitAll()
+            .requestMatchers("/v3/api-docs/**").permitAll()
 
             // Tout le monde peut accéder au stock des bouteilles
             .requestMatchers(HttpMethod.GET, "/caveavin/bouteilles/all").permitAll()
+            // et consulter les détails d'une bouteille
+            .requestMatchers(HttpMethod.GET, "/caveavin/bouteilles/**").permitAll()
 
             // Un client peut rechercher un panier par ID,
             .requestMatchers(HttpMethod.GET, "/caveavin/paniers/**").hasAnyRole("CLIENT", "OWNER")

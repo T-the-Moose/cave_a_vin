@@ -2,6 +2,9 @@ package fr.eni.caveavin.controllers;
 
 import fr.eni.caveavin.entities.vin.Bouteille;
 import fr.eni.caveavin.services.BouteilleService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,6 +25,14 @@ public class BouteilleController {
     }
 
     @GetMapping("/all")
+    @Operation(
+            summary = "Permet de récupérer toutes les bouteilles",
+            description = "Retourne une liste de toutes les bouteilles disponibles dans la cave à vin"
+    )
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Liste des bouteilles récupérée avec succès"),
+            @ApiResponse(responseCode = "204", description = "Aucune bouteille trouvée")
+    })
     public ResponseEntity<List<Bouteille>> getAllBouteilles() {
         // ResponseEntity pour pouvoir renvoyer un code HTTP
         List<Bouteille> listBouteilles = this.bouteilleService.chargerToutesBouteilles();

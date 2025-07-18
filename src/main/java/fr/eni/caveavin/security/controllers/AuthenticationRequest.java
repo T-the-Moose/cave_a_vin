@@ -9,6 +9,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor @AllArgsConstructor
 @EqualsAndHashCode(of = "pseudo")
 public class AuthenticationRequest {
+
+    // Conditionne le body de la requête d'authentification
+    // Exemple :
+    // {
+    //      "pseudo": "user",
+    //      "password": "password"
+    // }
     private String pseudo;
     private String password;
 }
